@@ -68,7 +68,26 @@ public class BlogService {
         * --> Actual behind the scene implementation of <T> mapRow(resultSet, rowNum) method
 
         * --> Child class of RowMapper i.e BeanPropertyRowMapper<>() makes the thing easy
+
+        * --> BeanPropertyRowMapper<> can only be used in case where the DB table fields and Class instance variable fields are same
+
+        * --> When they are different then it can not extract field from DB and bind to the Class objects
+
+        ✅ BeanPropertyRowMapper<>() simplifies the RowMapper implementation:
+
+        * It is a built-in implementation of the RowMapper interface.
+
+        * It automatically maps columns from the ResultSet to the fields of the Java object using JavaBean conventions.
+
+        ✅ Important Note:
+
+        * BeanPropertyRowMapper<> can **only** be used when the database table column names 
+          and the Java class field names (including case sensitivity in some DBs) **exactly match**.
+        
+        * If column names and field names are different, BeanPropertyRowMapper will fail to bind them properly.
+
+        * In such cases, we must use a custom RowMapper (like the one above) to manually extract and set values.
        
-       */ 
+       */
     }
 }
