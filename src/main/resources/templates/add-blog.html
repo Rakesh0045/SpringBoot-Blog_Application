@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace = "~{common/fragment :: head}"></head>
+<body>
+    <header th:replace = "~{common/fragment :: header}"></header>
+
+    <main class="container mt-3 p-3">
+        
+        <div th:replace="~{common/fragment :: backBtn}"></div>
+
+        <div class="container mt-3 p-3 shadow-lg rounded-3">
+            <h3 class="text-center">Add blog</h3>
+            <hr>
+
+            <form action="/add-blog" method="post">
+                <label for="blogHeading" class="form-label">Enter heading</label>
+                <input type="text" id="blogHeading" class="form-control" name="heading">
+
+                <label for="blogDescription" class="form-label">Enter description</label>
+                <textarea id="blogDescription" class="form-control" name="description"></textarea>
+                <br>
+                <button class="btn btn-success">Submit</button>
+            </form>
+
+            
+
+        </div>
+
+    </main>
+</body>
+</html>

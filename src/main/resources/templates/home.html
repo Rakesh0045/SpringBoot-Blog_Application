@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace = "~{common/fragment :: head}"></head>
+
+<body>
+    <header th:replace = "~{common/fragment :: header}"></header>
+
+    <main class="container-fluid">
+        <div class="container-fluid text-end">
+            <a href="/form" class="btn btn-primary">Add Blog</a>
+        </div>
+    
+        <section class="container mt-3">
+            <div th:each="blog, field: ${blogs}" class="p-3 shadow-lg rounded my-3" onclick="handleOnHeadingClick()">
+
+                <h3 
+                
+                    th:text="| ${(field.index+1) < 10 ? '0'+(field.index+1) : (field.index+1)}. ${blog.heading} |">
+
+                </h3>  
+
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/home.js"></script>
+
+</body>
+
+</html>
