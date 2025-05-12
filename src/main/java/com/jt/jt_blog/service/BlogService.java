@@ -90,4 +90,11 @@ public class BlogService {
        
        */
     }
+
+    public void delete(int id){
+        var sql = "DELETE FROM %s WHERE id=?".formatted(BLOG_TABLE);
+        // jdbcTemplate.update(sql.formatted(BLOG_TABLE),id);
+        jdbcTemplate.update(sql,id);
+    }
+
 }

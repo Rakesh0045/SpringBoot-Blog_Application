@@ -47,5 +47,18 @@ public class BlogController {
 
         return "blog-detail";
     }
+
+    @GetMapping("/blog/delete/{id}")
+    public String deleteBlog(@PathVariable int id, Model model){
+        blogService.delete(id);
+        return "redirect:/";
+    }
+
+    @GetMapping("/blog/edit/{id}")
+    public String editBlog(@PathVariable int id, Model model){
+        var blog = blogService.getBlogById(id);
+        model.addAttribute("blog", blog);
+        return "edit-blog";
+    }
     
 }

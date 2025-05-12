@@ -12,10 +12,10 @@
 
         <div th:replace="~{common/fragment :: backBtn}"></div>
 
-        <div class="container shadow-lg">
+        <div class="container shadow-lg mt-3 rounded-3">
             <h2 class="text-center" th:text="${blog.heading}"></h2>
             <hr>
-            <p th:text="${blog.description}"></p>
+            <p th:text="${blog.description}" class="mb-3 pb-3"></p>
         </div>
 
     </main>
