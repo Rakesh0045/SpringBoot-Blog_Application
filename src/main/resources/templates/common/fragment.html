@@ -17,8 +17,8 @@
         <h1 class="p-3 shadow-lg">JT blogs</h1>
     </header>
 
-    <div th:fragment="backBtn" class="text-end">
-        <a href="/" class="btn btn-primary">Back</a>
+    <div th:fragment="backBtn(text, url)" class="text-end">
+        <a th:href="@{${url}}" class="btn btn-primary" th:text="${text}"></a>
     </div>
 
 </body>

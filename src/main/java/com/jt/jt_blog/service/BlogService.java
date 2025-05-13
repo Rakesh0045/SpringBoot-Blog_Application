@@ -97,4 +97,13 @@ public class BlogService {
         jdbcTemplate.update(sql,id);
     }
 
+    public void updateBlog(Blog blog) {
+       var id = blog.getId();
+       var heading = blog.getHeading();
+       var description = blog.getDescription();
+
+       var sql = "UPDATE %s SET heading = ? , description = ? WHERE id = ?".formatted(BLOG_TABLE);
+       jdbcTemplate.update(sql,heading,description,id);
+    }
+
 }

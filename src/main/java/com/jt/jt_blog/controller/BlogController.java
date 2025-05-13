@@ -60,5 +60,11 @@ public class BlogController {
         model.addAttribute("blog", blog);
         return "edit-blog";
     }
+
+    @PostMapping("/update-blog")
+    public String updateBlog(@ModelAttribute Blog blog){
+        blogService.updateBlog(blog);
+        return "redirect:/";
+    }
     
 }

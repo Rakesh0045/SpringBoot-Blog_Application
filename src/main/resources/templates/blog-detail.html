@@ -10,7 +10,7 @@
 
     <main class="container mt-3 p-3">
 
-        <div th:replace="~{common/fragment :: backBtn}"></div>
+         <div th:replace="~{common/fragment :: backBtn('Back','/')}"></div>
 
         <div class="container shadow-lg mt-3 rounded-3">
             <h2 class="text-center" th:text="${blog.heading}"></h2>
