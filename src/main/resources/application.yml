@@ -9,8 +9,13 @@
 spring:
     application:
         name: jt-blogs
+
+    sql:
+        init:
+            mode: never
+
     datasource:
-        url: jdbc:mysql://localhost/blog
+        url: jdbc:mysql://localhost/blog?createDatabaseIfNotExist=true
         username: root
         password: Rakesh
 

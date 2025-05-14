@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS blogs (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    heading TINYTEXT,
+    description MEDIUMTEXT
+);
