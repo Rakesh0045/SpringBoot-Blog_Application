@@ -1,18 +1,21 @@
 
 # 📝 JT-Blog
 
-A clean and professional blog management system built using **Java**, **Spring Boot**, **Thymeleaf**, and **Bootstrap 5**. This project allows users to create, edit, view, and delete blog posts with an elegant UI and smooth interactions.
+A clean and professional blog management system built using **Java**, **Spring Boot**, **Thymeleaf**, and **Bootstrap 5**. This project allows users to create, edit, view, and delete blog posts with an elegant UI and utilizing database technology for smooth interactions.
 
 <br>
 
 
 ## 📸 Project Preview
 
-> ![JT-Blog Home Page](your-screenshot-url-or-remove-this-line)
+Home page
+![JT-Blog Home Page](screenshots/home.png)
 
-> ![Add-Blog Page]()
+Add Page
+![Add-Blog Page](screenshots/add.png)
 
-> ![Edit-Blog Page]()
+Edit Page
+![Edit-Blog Page](screenshots/edit.png)
 
 <br>
 
@@ -27,14 +30,17 @@ A clean and professional blog management system built using **Java**, **Spring B
 
 ## 🛠️ Tech Stack
 
-| Technology     | Role                                |
-|----------------|-------------------------------------|
-| Java           | Backend language                    |
-| Spring Boot    | Framework for building REST APIs    |
-| Thymeleaf      | Server-side template engine         |
-| Bootstrap 5    | UI design & responsive layout       |
-| HTML/CSS       | Frontend structure and styling      |
-| JavaScript     | Basic interactivity                 |
+- **Java 17+**
+- **Spring Boot**
+- **Thymeleaf**
+- **MySQL**
+- **HTML**
+- **CSS**
+- **Bootstrap 5**
+- **JavaScript**
+- **Maven**
+- **HTML / CSS**
+- **Maven**
 
 <br>
 
