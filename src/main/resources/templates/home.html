@@ -66,7 +66,8 @@
         <section class="container mt-4">
             <div th:each="blog, field : ${blogs}"
                 class="blog-card p-4 shadow-sm rounded-4 my-3 bg-white d-flex justify-content-between align-items-center"
-                th:onclick="| handleOnHeadingClick(${blog.id}) |">
+                th:onclick="| handleOnHeadingClick(${blog.id}) |"
+                style="cursor: pointer;">
 
                 <!-- Blog Heading with Index Line -->
                 <div class="index-line">

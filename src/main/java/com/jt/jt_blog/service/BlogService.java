@@ -1,26 +1,36 @@
 package com.jt.jt_blog.service;
 
-import java.sql.ResultSet;
+
+import java.lang.StackWalker.Option;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
+
 import org.springframework.stereotype.Service;
 
 import com.jt.jt_blog.model.Blog;
+import com.jt.jt_blog.repository.BlogRepository;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 public class BlogService {
-    private static final String BLOG_TABLE = "blogs";
+    private static final String BLOG_TABLE = "blog";
     private final JdbcTemplate jdbcTemplate;
+    private final BlogRepository blogRepository;
 
     public List<Blog> getBlogs(){
-        var sql = "SELECT * FROM " + BLOG_TABLE;
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Blog.class));
+        // var sql = "SELECT * FROM " + BLOG_TABLE;
+        // return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Blog.class));
+
+        var blogs = blogRepository.findAll(); //this method returns list of Blog
+
+        //findAll() --> Extract all the rows from the table
+
+        return blogs; 
 
         /*
 
@@ -35,20 +45,27 @@ public class BlogService {
         
         */
 
+
+
     }
 
     public void addBlog(Blog blog){
-        var sql = "INSERT INTO "+BLOG_TABLE+" (heading,description) VALUES(?,?)";
-        jdbcTemplate.update(sql, blog.getHeading(), blog.getDescription());
+
+        // var sql = "INSERT INTO "+BLOG_TABLE+" (heading,description) VALUES(?,?)";
+        // jdbcTemplate.update(sql, blog.getHeading(), blog.getDescription());
 
         //jdbcTemplate.update(query, Object... args) --> parameters are query and the input fields of required class bind to an object
+    
+        Blog savedBlog = blogRepository.save(blog); 
+        // save(Entity S) --> pass the ref of entity object. It insert a row into the table
+
     }
 
     public Blog getBlogById(int id) {
-        var sql = "SELECT * FROM " +BLOG_TABLE+ " WHERE id="+id;
+        // var sql = "SELECT * FROM " +BLOG_TABLE+ " WHERE id="+id;
 
-        Blog blog = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Blog.class) );
-        return blog;
+        // Blog blog = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Blog.class) );
+        // return blog;
 
         //queryForObject --> Extract and return single object or extract single data
 
@@ -89,6 +106,31 @@ public class BlogService {
         * In such cases, we must use a custom RowMapper (like the one above) to manually extract and set values.
        
        */
+
+        // Optional<Blog> optionalBlog = blogRepository.findById(id);
+
+        //findById() --> returns a Optional object which avoid NullPointerException if we r fetching from null id
+
+        // if(optionalBlog.isPresent()){
+        //     Blog existingBlog = optionalBlog.get();
+
+        //     //fetch object if the optionalBlog is not null
+
+        //     return existingBlog;
+        // }else{
+        //     throw new RuntimeException("Blog does not exist with id "+id);
+        // }
+
+        // if(!optionalBlog.isPresent()){
+        //     throw new RuntimeException("Blog does not exist with id "+id);
+        // }
+
+        // return optionalBlog.get(); 
+
+        return blogRepository.findById(id).orElseThrow(() -> new RuntimeException("Blog does not exist with id: "+id));
+
+        // findById() --> It extracts the row by matching the primary key
+
     }
 
     public void delete(int id){
