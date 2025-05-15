@@ -3,13 +3,18 @@
 
 A clean and professional blog management system built using **Java**, **Spring Boot**, **Thymeleaf**, and **Bootstrap 5**. This project allows users to create, edit, view, and delete blog posts with an elegant UI and smooth interactions.
 
----
+<br>
+
 
 ## 📸 Project Preview
 
-> ![JT-Blog Preview](your-screenshot-url-or-remove-this-line)
+> ![JT-Blog Home Page](your-screenshot-url-or-remove-this-line)
 
----
+> ![Add-Blog Page]()
+
+> ![Edit-Blog Page]()
+
+<br>
 
 ## 🚀 Features
 
@@ -18,8 +23,7 @@ A clean and professional blog management system built using **Java**, **Spring B
 - Responsive and professional UI using Bootstrap 5
 - Custom styling and dynamic blog ID prefix (01., 02., etc.)
 - Organized folder structure with clean separation of concerns
-
----
+<br>
 
 ## 🛠️ Tech Stack
 
@@ -32,7 +36,7 @@ A clean and professional blog management system built using **Java**, **Spring B
 | HTML/CSS       | Frontend structure and styling      |
 | JavaScript     | Basic interactivity                 |
 
----
+<br>
 
 ## 📂 Project Structure
 
@@ -64,7 +68,7 @@ JT-BLOG/
 
 ````
 
----
+<br>
 
 ## 🧪 How to Run
 
@@ -72,7 +76,7 @@ JT-BLOG/
    ```bash
    git clone https://github.com/your-username/jt-blog.git
    cd jt-blog
-````
+
 
 2. **Open in your IDE** (IntelliJ recommended)
 
@@ -86,45 +90,5 @@ JT-BLOG/
    http://localhost:8080/
    ```
 
----
-
-## 🎨 UI Highlights
-
-* Blue gradient background and consistent theme
-* Blog hover effects for interaction feedback
-* Custom green navbar: `.glass-navbar-green`
-* Icons from **Bootstrap Icons**
-* No emojis – all professional iconography
-
----
-
-## 📌 Notes
-
-* You can update blog data via `data.sql` and `schema.sql`.
-* Styling tweaks are in `fragment.html` and `home.html`.
-* JavaScript functions are in `static/js/home.js`.
-
----
-
-## 📃 License
-
-This project is for educational purposes. You can use and modify it as needed.
-
----
-
-## 🙌 Acknowledgements
-
-* [Bootstrap Icons](https://icons.getbootstrap.com/)
-* [Thymeleaf](https://www.thymeleaf.org/)
-* [Spring Boot](https://spring.io/projects/spring-boot)
-
----
-
-> Made with ❤️ by \Rakesh
 
 
-- Replace `your-username` and `your-screenshot-url-or-remove-this-line` with actual values.
-- You can include GIFs or screenshots inside the **📸 Project Preview** section for better visuals.
-
-Would you like help generating a custom banner or badge for GitHub too?
-```
