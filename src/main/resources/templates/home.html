@@ -1,37 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head th:replace = "~{common/fragment :: head}"></head>
+<head th:replace="~{common/fragment :: head}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .blog-card {
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            
+        }
+
+        .container:hover{
+            color: #0d6efd;
+            cursor: pointer;
+        }
+
+        .add-blog-btn {
+            padding: 10px 20px;
+            font-weight: 500;
+            font-size: 1rem;
+            border-radius: 8px;
+        }
+
+        .blog-heading {
+            color: #0d6efd;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0;
+            transition: color 0.3s ease;
+        }
+
+        .blog-card:hover .blog-heading {
+            color: #084298; /* Darker blue on hover */
+            text-decoration: underline;
+        }
+
+        .index-line {
+            border-left: 4px solid #0d6efd;
+            padding-left: 15px;
+        }
+    </style>
+</head>
 
 <body>
-    <header th:replace = "~{common/fragment :: header}"></header>
+    <header th:replace="~{common/fragment :: header}"></header>
 
-    <main class="container-fluid">
-        
-        <div th:replace="~{common/fragment :: backBtn('Add Blog','/form')}">
+    <main class="container-fluid py-4 px-3">
 
+        <!-- Add Blog Button -->
+        <div class="container d-flex justify-content-end">
+            <a href="/form" class="btn btn-success add-blog-btn">
+                <i class="bi bi-plus-circle me-1"></i> Add Blog
+            </a>
         </div>
-    
-        <section class="container mt-3">
-            <div th:each="blog, field: ${blogs}" class="p-3 shadow-lg rounded my-3 d-flex justify-content-between align-items-center" th:onclick= "| handleOnHeadingClick(${blog.id}) |">
 
-                <h3 
-                
-                    th:text="| ${(field.index+1) < 10 ? '0'+(field.index+1) : (field.index+1)}. ${blog.heading} |">
+        <!-- Blog List Section -->
+        <section class="container mt-4">
+            <div th:each="blog, field : ${blogs}"
+                class="blog-card p-4 shadow-sm rounded-4 my-3 bg-white d-flex justify-content-between align-items-center"
+                th:onclick="| handleOnHeadingClick(${blog.id}) |">
 
-                </h3>  
-
-                <div class="text-end">
-                    <a th:href="| /blog/edit/${blog.id} |" class="text-decoration-none me-3">✏️</a>
-                    <a th:href="| /blog/delete/${blog.id} |" class="text-decoration-none">🗑️</a>
+                <!-- Blog Heading with Index Line -->
+                <div class="index-line">
+                    <h4 class="blog-heading"
+                        th:text="| ${(field.index + 1) < 10 ? '0' + (field.index + 1) : (field.index + 1)}. ${blog.heading} |">
+                    </h4>
                 </div>
 
+                <!-- Edit & Delete Icons -->
+                <div class="text-end">
+                    <a th:href="| /blog/edit/${blog.id} |"
+                        class="text-decoration-none me-3 fs-5 text-primary" title="Edit">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <a th:href="| /blog/delete/${blog.id} |"
+                        class="text-decoration-none fs-5 text-danger" title="Delete">
+                        <i class="bi bi-trash3-fill"></i>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
     <script src="/js/home.js"></script>
-
 </body>
 
 </html>
