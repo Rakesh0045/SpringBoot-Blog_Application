@@ -134,18 +134,31 @@ public class BlogService {
     }
 
     public void delete(int id){
-        var sql = "DELETE FROM %s WHERE id=?".formatted(BLOG_TABLE);
+        // var sql = "DELETE FROM %s WHERE id=?".formatted(BLOG_TABLE);
         // jdbcTemplate.update(sql.formatted(BLOG_TABLE),id);
-        jdbcTemplate.update(sql,id);
+        // jdbcTemplate.update(sql,id);
+
+        Blog existingBlog = getBlogById(id);
+        blogRepository.delete(existingBlog);
     }
 
-    public void updateBlog(Blog blog) {
-       var id = blog.getId();
-       var heading = blog.getHeading();
-       var description = blog.getDescription();
+    public void updateBlog(Blog newBlog) {
+    //    var id = blog.getId();
+    //    var heading = blog.getHeading();
+    //    var description = blog.getDescription();
 
-       var sql = "UPDATE %s SET heading = ? , description = ? WHERE id = ?".formatted(BLOG_TABLE);
-       jdbcTemplate.update(sql,heading,description,id);
+    //    var sql = "UPDATE %s SET heading = ? , description = ? WHERE id = ?".formatted(BLOG_TABLE);
+    //    jdbcTemplate.update(sql,heading,description,id);
+
+        // Blog existinBlog = getBlogById(newBlog.getId());
+
+        // existinBlog.setHeading(newBlog.getHeading());
+        // existinBlog.setDescription(newBlog.getDescription());
+
+        // blogRepository.save(existinBlog);
+
+        blogRepository.save(newBlog); //If newBlog already exists then the fields get updated, if it is a new one, then it is inserted as new row
+
     }
 
 }
